@@ -478,20 +478,29 @@
 
 // Exercise 10
 // Setting max and min possible values
-let max = 6;
-let min = 1;
+// let max = 6;
+// let min = 1;
 // Generating a random number between max and min
 // Jorge solution
-let randomNumber1 = (Math.floor(Math.random() * 10) % 6) + 1;
-//let randomNumber1 = Math.floor(Math.random() * max) + min;
-let randomNumber2 = Math.floor(Math.random() * max) + min;
+// let randomNumber1 = (Math.floor(Math.random() * 10) % 6) + 1;
+// //let randomNumber1 = Math.floor(Math.random() * max) + min;
+// let randomNumber2 = Math.floor(Math.random() * max) + min;
 
-console.log(randomNumber1);
-console.log(randomNumber2);
-if (randomNumber1 > randomNumber2) {
-  console.log("Player 1 wins!");
-} else if (randomNumber1 < randomNumber2) {
-  console.log("Player 2 wins!");
-} else {
-  console.log("Draw");
+// console.log(randomNumber1);
+// console.log(randomNumber2);
+// if (randomNumber1 > randomNumber2) {
+//   console.log("Player 1 wins!");
+// } else if (randomNumber1 < randomNumber2) {
+//   console.log("Player 2 wins!");
+// } else {
+//   console.log("Draw");
+// }
+
+// Exercises part 2
+// Exercise 1
+let text = "palindrome";
+for (let number = 0; number <= text.length - 1; number++) {
+  console.log(`${number + 1}. ${text[number]}`);
 }
+console.log("Letters quantity: ", text.length);
+
