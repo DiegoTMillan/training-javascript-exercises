@@ -507,7 +507,8 @@
 // Exercise 2
 // let palindrome = "no lemon, no melon";
 // let invertedPalindrome = "";
-// for (let i = palindrome.length - 1; i >= 0; i--) {
+
+// for (let i = palindrome.length - 1; i >= 0;i--) {
 //   invertedPalindrome += palindrome[i];
 // }
 // console.log(invertedPalindrome);
@@ -518,6 +519,25 @@
 //   asterisks += "****\n";
 // }
 // console.log(asterisks);
+
+// Jorge and Giovanna solution
+// let msg = "";
+// let side = 10;
+// for (let i = 0; i < side; i++) {
+//   for (let j = 0; j < side; j++) {
+//     msg = msg + "* ";
+//   }
+//   msg = msg + "\n";
+// }
+// console.log(msg);
+
+// Fran solution
+// let cont = 1;
+// let word = "";
+// while (cont++ <= 4) {
+//   word += "* * * *\n";
+// }
+// console.log(word);
 
 // Exercise 4
 
@@ -537,25 +557,72 @@
 // ) {
 //   mediaTemp += eval(`mar${i}`);
 // }
-// console.log("7-Day Temperature Media: ", mediaTemp / counter);
+// console.log("7-Day Average Temperature: ", mediaTemp / counter);
 
 // Exercise 5
 // let toGuess = Math.floor(Math.random() * 11);
 // console.log(toGuess);
 // let attemps = 3;
 // let userWon = false;
-// let userNumber = prompt("Try to guess a number between 0 y 10");
 // console.log("Let's play!");
-// while (--attemps > 0 && !userWon) {
+// let userNumber = prompt("Try to guess a number between 0 and 10");
+// while (--attemps >= 0 && !userWon) {
 //   if (toGuess == +userNumber) {
 //     alert("You win!");
 //     userWon = true;
-//   } else {
+//   } else if (attemps > 0) {
 //     userNumber = prompt(`Try it again, you have ${attemps} more attemps`);
 //   }
 // }
 // if (!userWon) {
 //   alert("Sorry, Good luck in love");
+// }
+
+// Kay solution
+//Adivine el numero
+// let x, y, number;
+
+// for (x = Math.floor(Math.random() * 10), number = 0; x != y; number++) {
+//   console.log(x);
+//   switch (number) {
+//     case 0:
+//       y = prompt(
+//         "Las tornas han cambiado, Akinator ha elegido un número y ahora serás tu quien tenga que adivinar en cuál ha pensado en unicamente tres intentos. ¿Tienes alguna ligera idea?"
+//       );
+//       break;
+//     case 1:
+//       y = prompt(
+//         "Uy, estuvo cerca, bueno, para que mentirte, en realidad no. Pero miralo por el lado bueno, tienes una segunda oportunidad ¿Cuál sera tu elección ahora?"
+//       );
+//       break;
+//     case 2:
+//       y = prompt(
+//         "A Akinator le estas empezando a dar penita, por eso te da una ultima oportunidad, pero ninguna más ¿Entendido? Pues dale ¿Cuál es tu ultima elección?"
+//       );
+//       break;
+//     case 3:
+//       y = x;
+//       break;
+//     default:
+//       alert("No sé que has hecho pero la has liao, reinicia la página");
+//   }
+// }
+// if (number == 1) {
+//   alert(
+//     `Sii, Akinator había pensado en el número ${x}, ¡lo sacaste a la primera! ¡Eres más adivine que el propio Akinator!`
+//   );
+// } else if (number == 2) {
+//   alert(
+//     `Efectivamente, Akinator había pensado en el número ${x}, ¡lo sacaste a la segunda! ¡Akinator te envidia un poquito, pero no mucho!`
+//   );
+// } else if (number == 3) {
+//   alert(
+//     `Sii, Akinator había pensado en el número ${x}, ¡lo sacaste en el último intento! ¡Te falta un poquito de entrenamiento más para ser igual de fantastibuloso que el gran Akinator!`
+//   );
+// } else if (number == 4) {
+//   alert(
+//     `Lo siento pequeño aprendiz, pero has perdido la oportunidad de asemejarte al gran Akinator. El número que este había pensado era el ${x}`
+//   );
 // }
 
 // Exercise 6
@@ -591,6 +658,7 @@ let withSymbols = includeSymbol == "n" ? false : true;
   (withLowers = !withLowers);
 let password = "";
 let repeatedChar = false;
+let countingGenPass = 0;
 while (
   (withLowers && !/[a-z]/.test(password)) ||
   (withUppers && !/[A-Z]/.test(password)) ||
@@ -599,6 +667,7 @@ while (
     !/(!|"|#|[$]|%|&|'|[(]|[)]|[*]|[+]|'|-|.|[/])+/.test(password)) ||
   repeatedChar
 ) {
+  countingGenPass++;
   password = "";
   repeatedChar = false;
   for (let i = 0, newChar = false; i < length; i++) {
@@ -647,10 +716,10 @@ while (
     }
   }
 }
-alert(`Your password: ${password}`);
+alert(`Your password: ${password} in ${countingGenPass} attemps.`);
 
-let newString = ""
-for(let i = 33, max = 47;i<=max;i++){
-  newString += String.fromCharCode(i);
-}
-console.log(newString);
+// let newString = ""
+// for(let i = 33, max = 47;i<=max;i++){
+//   newString += String.fromCharCode(i);
+// }
+// console.log(newString);

@@ -131,8 +131,8 @@
 // }
 
 // Random numbers loop
-let max = 90;
-let min = 0;
+// let max = 90;
+// let min = 0;
 // for (let index = 0; index < 100; index++) {
 //   console.log(Math.floor(Math.random() * max) + min);
 // }
@@ -185,8 +185,38 @@ let min = 0;
 // for (let num = -1, max = 100, counter = 0; num < max; num++) {
 //   if (num % 2 != 0){
 //     continue;
-//   } 
+//   }
 //   console.log(`${num}`);
 //   console.log(`iteration ${++counter}`);
 //     console.log("iteration " + ++counter);
 // }
+// interactive menu for hex colors
+
+// interactive menu for hex colors
+let option = null;
+let colors = ["red", "green", "blue", "purple"];
+do {
+  console.log("Please, choose a color");
+  for (let index = 0; index < colors.length; index++) {
+    console.log(index + 1 + " => " + colors[index]);
+  }
+  console.log("Press 0 to leave");
+  option = prompt("Make your choice");
+  switch (option) {
+    case "1":
+      console.log("%cHex code for red: #FF0000", "color:#FF0000");
+      break;
+    case "2":
+      console.log("%cHex code for green: #008000", "color:green");
+      break;
+    case "3":
+      console.log("%cHex code for blue: #0000FF", "color:blue");
+      break;
+      case "4":
+        console.log("%cHex code for purple: #531253", "color:#531253");
+        break;
+    default:
+      console.log("Exiting, see you soon!");
+      break;
+  }
+} while (option != null && option != "0");
