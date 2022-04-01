@@ -25,7 +25,7 @@ const exercise1 = () => {
   }
   console.log(randomNumbersList);
   console.log(randomNumbersList);
-  
+
   console.log("Min value: ", minFound);
   console.log("Max value: ", maxFound);
 };
@@ -47,7 +47,7 @@ const exercise1 = () => {
 //     }`
 //   );
 // };
-//Julio solution 
+//Julio solution
 // const exercise1 = () => {
 //     let minLim = parseInt(prompt(`Please insert the minimum numerical limit`));
 //     let maxLim = parseInt(prompt(`Please insert the maximum numerical limit`));
@@ -61,7 +61,7 @@ const exercise1 = () => {
 //     console.log(randNums);
 //   };
 
-//Jorge solution => 
+//Jorge solution =>
 // function exercise1() {
 //   let min;
 //   let max;
@@ -91,4 +91,68 @@ const exercise1 = () => {
 // }
 //exercise1();
 
-// Exercise 1: solution
+// const exercise2 = () => {
+// Exercise 2: solution
+// let date = new Date();
+// let hour = date.getHours();
+// let minutes = date.getMinutes();
+// let hour = 5;
+// let minutes = 59;
+// console.log(hour,minutes);
+// if (hour >= 6 && minutes >= 0 && hour <= 11 && minutes <= 59) {
+//   alert("¡Buenos días!");
+// } else if (hour >= 12 && minutes >= 0 && hour <= 20 && minutes <= 59) {
+//   alert("¡Buenas tardes!");
+// } else if ((hour >= 21 && minutes >= 0) || (hour <= 5 && minutes <= 59)) {
+//   alert("¡Buenas noches!");
+// } else{
+//   console.log("system time is failing.");
+// }
+// Julio solution
+// new Date().getHours() >= 6 && new Date().getHours() < 12
+//   ? alert(`Buenos días`)
+//   : new Date().getHours() >= 12 && new Date().getHours() < 21
+//   ? alert(`Buenas tardes`)
+//   : alert(`Buenas noches`);
+// };
+// exercise2();
+
+// chained ternary operator
+// 2 + 2 == 7
+//   ? console.log("verdadero")
+//   : 1 + 1 == 2
+//   ? console.log("verdadero")
+//   : console.log("falso");
+
+// Exercise 3
+
+const exercise3 = () => {
+  // storing all letter and digit combinations
+  // for html color code
+  // const generateColor = () => {
+  //   let letters = "0123456789ABCDEF";
+  //   // html color code starts with #
+  //   let color = "#";
+  //   // generating 6 times as HTML color code consist
+  //   // of 6 letter or digits
+  //   for (let i = 0; i < 6; i++) {
+  //     color += letters[Math.floor(Math.random() * 16)];
+  //   }
+  //   return color;
+  // };
+  // for (let i = 1; i <= 10; i++) {
+  //   console.log("%cHello World!",`color: ${generateColor()}`);
+  // }
+
+  //alternative solution
+  setInterval(() => {
+    for (let i = 1; i <= 10; i++) {
+      console.log(
+        "%cHello World!",
+        `color: #${Math.floor(Math.random() * 16777215).toString(16)}`
+      );
+    }
+  }, 100);
+};
+
+exercise3();
