@@ -155,4 +155,143 @@ const exercise3 = () => {
   }, 100);
 };
 
-exercise3();
+// exercise3();
+
+// Exercise 4
+const exercise4 = () => {
+  let validLetters = [
+    "T",
+    "R",
+    "W",
+    "A",
+    "G",
+    "M",
+    "Y",
+    "F",
+    "P",
+    "D",
+    "X",
+    "B",
+    "N",
+    "J",
+    "Z",
+    "S",
+    "Q",
+    "V",
+    "H",
+    "L",
+    "C",
+    "K",
+    "E",
+  ];
+
+  // console.log(validLetters[22]);
+  let dni = prompt("Please, enter your DNI: ");
+  let numbers = dni.substring(0, dni.length - 1);
+  let letter = dni.substring(dni.length - 1);
+  // console.log(letter);
+  if (validLetters[parseInt(numbers) % 23] == letter) {
+    alert("Valid DNI");
+  } else {
+    alert("The data entered is wrong");
+  }
+
+  const dniGenerator = () => {
+    let randomNumber = Math.floor(
+      Math.random() * (100000000 - 10000000) + 10000000
+    );
+    randomNumber += validLetters[randomNumber % 23];
+    return randomNumber;
+  };
+  for (let index = 0; index < 100; index++) {
+    console.log(dniGenerator());
+  }
+};
+
+// exercise4();
+
+// Exercise 5
+const exercise5 = () => {
+  let platesNumber = prompt("Please, insert a number to generate:");
+  // let plate = "";
+  // // numbers
+  // const numbersGenerator = () => {
+  //   let number = Math.floor(Math.random() * 10000);
+  //   // if (number < 10) {
+  //   //   plate = "000" + number;
+  //   // } else if (number < 100) {
+  //   //   plate = "00" + number;
+  //   // } else if (number < 1000) {
+  //   //   plate = "0" + number;
+  //   // } else {
+  //   //   plate = number.toString();
+  //   // }
+
+  //   // Giovanna solution
+  //   number = number.toString();
+  //   let numberLength = number.length;
+  //   for (let i = 0; i < 4 - numberLength; i++) {
+  //     number = "0" + number;
+  //   }
+  //   plate = number;
+  //   // console.log(plate);
+  // };
+  // const letterGenerator = () => {
+  //   const validChars = [
+  //     "B",
+  //     "C",
+  //     "D",
+  //     "F",
+  //     "G",
+  //     "H",
+  //     "J",
+  //     "K",
+  //     "L",
+  //     "M",
+  //     "N",
+  //     "P",
+  //     "R",
+  //     "S",
+  //     "T",
+  //     "V",
+  //     "W",
+  //     "X",
+  //     "Y",
+  //     "Z",
+  //   ];
+
+  //   //letters
+  //   for (let index = 0; index < 3; index++) {
+  //     plate += validChars[Math.floor(Math.random() * validChars.length)];
+  //   }
+  // };
+  // for (let index = 0; index < platesNumber; index++) {
+  //   numbersGenerator();
+  //   plate += " ";
+  //   letterGenerator();
+  //   console.log(plate);
+  //   // plate = "";
+  // }
+
+  // Tomasz solution
+  for (let index = 0; index < platesNumber; index++) {
+    var array = [];
+    var text = [];
+    var letter = "BCDEFGHIJKLMNPRSTUVWXYZ";
+
+    for (var i = 0, t = 4; i < t; i++) {
+      array.push(Math.round(Math.random() * 9));
+    }
+    for (var i = 0; i < 3; i++) {
+      text += letter.charAt(Math.floor(Math.random() * letter.length));
+    }
+
+    document.write(
+      `<p>Here we have registration for your new car!: ${array.join("")} ${text}</p>`
+    );
+    console.log(
+      `Here we have registration for your new car!: ${array.join("")} ${text}`
+    );
+  }
+};
+exercise5();
