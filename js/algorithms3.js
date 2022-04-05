@@ -287,11 +287,195 @@ const exercise5 = () => {
     }
 
     document.write(
-      `<p>Here we have registration for your new car!: ${array.join("")} ${text}</p>`
+      `<p>Here we have registration for your new car!: ${array.join(
+        ""
+      )} ${text}</p>`
     );
     console.log(
       `Here we have registration for your new car!: ${array.join("")} ${text}`
     );
   }
 };
-exercise5();
+// exercise5();
+
+// Exercise 6
+const exercise6 = () => {
+  let quotes = [
+    "The purpose of our lives is to be happy. — Dalai Lama",
+    "Life is what happens when you’re busy making other plans. — John Lennon",
+    "Get busy living or get busy dying. — Stephen King",
+    "You only live once, but if you do it right, once is enough. — Mae West",
+    "Many of life’s failures are people who did not realize how close they were to success when they gave up.– Thomas A. Edison",
+    "If you want to live a happy life, tie it to a goal, not to people or things.– Albert Einstein",
+    "Never let the fear of striking out keep you from playing the game.– Babe Ruth",
+    "Money and success don’t change people; they merely amplify what is already there. — Will Smith",
+    "Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma – which is living with the results of other people’s thinking. – Steve Jobs",
+    "Not how long, but how well you have lived is the main thing. — Seneca",
+    "If life were predictable it would cease to be life, and be without flavor. – Eleanor Roosevelt",
+    "The whole secret of a successful life is to find out what is one’s destiny to do, and then do it.– Henry Ford",
+    "In order to write about life first you must live it.– Ernest Hemingway",
+    "The big lesson in life, baby, is never be scared of anyone or anything.– Frank Sinatra",
+    "Sing like no one’s listening, love like you’ve never been hurt, dance like nobody’s watching, and live like it’s heaven on earth. – (Attributed to various sources)",
+    "Curiosity about life in all of its aspects, I think, is still the secret of great creative people. – Leo Burnett",
+    "Life is not a problem to be solved, but a reality to be experienced.– Soren Kierkegaard",
+    "The unexamined life is not worth living. — Socrates",
+    "Turn your wounds into wisdom. — Oprah Winfrey",
+    "The way I see it, if you want the rainbow, you gotta put up with the rain. —Dolly Parton",
+  ];
+
+  //   console.log(quotes.length);
+  let start = new Date();
+  let end = null;
+  setTimeout(() => {
+    clearInterval(intervalId);
+    end = new Date();
+    console.log(
+      "Operation took " + (end.getTime() - start.getTime()) + " msec"
+    );
+  }, 1000 * 120);
+  let intervalId = setInterval(() => {
+    console.log(quotes[Math.floor(Math.random() * quotes.length)]);
+  }, 10000);
+};
+// exercise6();
+
+// Exercise 7
+const exercise7 = () => {
+  let numbers = new Array(100);
+  for (let index = 0; index < numbers.length; index++) {
+    numbers[index] = Math.floor(Math.random() * 501);
+  }
+  numbers = numbers.filter((number) => number % 2 === 0);
+  numbers = numbers.sort((a, b) => b - a);
+  console.log(numbers);
+};
+// exercise7();
+
+// Exercise 8
+
+const exercise8 = () => {
+  let clubs = [
+    "ACE",
+    "KING",
+    "QUEEN",
+    "JACK",
+    "10",
+    "9",
+    "8",
+    "7",
+    "6",
+    "5",
+    "4",
+    "3",
+    "2",
+  ];
+  let suits = ["clubs", "hearts", "spades", "diamonds"];
+  let hearts = [...clubs];
+  let spades = Array.of(...clubs);
+  let diamonds = Array.from(clubs);
+  //   spades[0] = "test";
+  //   console.log(spades);
+  //   console.log(clubs);
+  let balance = 500;
+  let bet = 0;
+  let continuePlaying = false;
+
+  do {
+    do {
+      bet = parseInt(prompt("How much do you want to bet?"));
+      if (bet > balance) {
+        alert("Sorry, your bet is higher than your available balance.");
+        alert(`Maximum available: ${balance}`);
+      }
+    } while (bet > balance);
+    let card1 = Math.floor(Math.random() * clubs.length);
+    let card2 = Math.floor(Math.random() * clubs.length);
+    let suit1 = suits[Math.floor(Math.random() * suits.length)];
+    let suit2 = suits[Math.floor(Math.random() * suits.length)];
+    console.log(
+      `${eval(suit1)[card1]} ${suit1} vs. ${eval(suit2)[card2]} ${suit2}`
+    );
+    if (card1 < card2) {
+      balance += bet;
+      alert("You win!");
+    } else if (card1 > card2) {
+      balance -= bet;
+      alert("You lose");
+    } else {
+      alert("Draw");
+    }
+    if (balance > 0) {
+      continuePlaying =
+        prompt("Would like to continue playing").toLowerCase() == "y";
+    }
+  } while (continuePlaying && balance > 0);
+  if (balance > 500) {
+    alert(`Betting benefits: ${500 - balance} €`);
+  } else {
+    alert(`Betting benefits: ${balance - 500} €`);
+  }
+  alert(`Total balance: ${balance} €`);
+};
+
+// exercise8();
+
+// Exercise 9
+
+const exercise9 = (encode, text) => {
+  const cipher = (encode, text) => {
+    if (encode) {
+      text = [...text].map((letter) => {
+        switch (letter.charCodeAt(0)) {
+          // uppers
+          case 88:
+            return String.fromCharCode(65);
+          case 89:
+            return String.fromCharCode(66);
+          case 90:
+            return String.fromCharCode(67);
+          //lowers
+          case 120:
+            return String.fromCharCode(97);
+          case 121:
+            return String.fromCharCode(98);
+          case 122:
+            return String.fromCharCode(99);
+          case 32:
+            return String.fromCharCode(32);
+
+          default:
+            return String.fromCharCode(letter.charCodeAt(0) + 3);
+        }
+      });
+    } else {
+      text = [...text].map((letter) => {
+        switch (letter.charCodeAt(0)) {
+          // uppers
+          case 65:
+            return String.fromCharCode(88);
+          case 66:
+            return String.fromCharCode(89);
+          case 67:
+            return String.fromCharCode(90);
+          //lowers
+          case 97:
+            return String.fromCharCode(120);
+          case 98:
+            return String.fromCharCode(121);
+          case 99:
+            return String.fromCharCode(122);
+          case 32:
+            return String.fromCharCode(32);
+
+          default:
+            return String.fromCharCode(letter.charCodeAt(0) - 3);
+        }
+      });
+    }
+    console.log(text.join(""));
+  };
+  cipher(encode, text);
+};
+
+exercise9(true, "Atacar al amanecer");
+exercise9(false, "wrgdb zloo eh d juhdw gdb");
