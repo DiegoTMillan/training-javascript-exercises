@@ -1,4 +1,5 @@
-// Utils
+// Imports
+import { numberGenerator } from "./utils.js";
 
 // Exercise 1: solution
 const exercise1 = () => {
@@ -8,8 +9,8 @@ const exercise1 = () => {
   let requiredNumbers = 20;
   let randomNumbersList = new Array(requiredNumbers);
 
-  const numberGenerator = (maxLimit, minLimit) =>
-    Math.floor(Math.random() * (maxLimit - minLimit + 1)) + minLimit;
+  // const numberGenerator = (maxLimit, minLimit) =>
+  //   Math.floor(Math.random() * (maxLimit - minLimit + 1)) + minLimit;
 
   let minFound = maxLimit;
   let maxFound = minLimit;
@@ -23,7 +24,6 @@ const exercise1 = () => {
       maxFound = temp;
     }
   }
-  console.log(randomNumbersList);
   console.log(randomNumbersList);
 
   console.log("Min value: ", minFound);
@@ -89,7 +89,7 @@ const exercise1 = () => {
 //   console.log(`min value: ${Math.min(...array)}`);
 //   console.log(`max value: ${Math.max(...array)}`);
 // }
-//exercise1();
+// exercise1();
 
 // const exercise2 = () => {
 // Exercise 2: solution
@@ -477,5 +477,5 @@ const exercise9 = (encode, text) => {
   cipher(encode, text);
 };
 
-exercise9(true, "Atacar al amanecer");
-exercise9(false, "wrgdb zloo eh d juhdw gdb");
+// exercise9(true, "Atacar al amanecer");
+// exercise9(false, "wrgdb zloo eh d juhdw gdb");
