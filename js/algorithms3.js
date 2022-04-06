@@ -373,11 +373,19 @@ const exercise8 = () => {
   let hearts = [...clubs];
   let spades = Array.of(...clubs);
   let diamonds = Array.from(clubs);
-  //   spades[0] = "test";
-  //   console.log(spades);
-  //   console.log(clubs);
+
+  // Benjamin solution for creating arrays
+  // const deck = [
+  //   ["spades", "clubs", "diamonds", "hearts"],
+  //   ["ACE", "KING", "QUEEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2],
+  // ];
+
+  // diamonds[0] = "test";
+  // console.log(diamonds);
+  // console.log(clubs);
   let balance = 500;
   let bet = 0;
+  let minimunBet = 5;
   let continuePlaying = false;
 
   do {
@@ -387,11 +395,18 @@ const exercise8 = () => {
         alert("Sorry, your bet is higher than your available balance.");
         alert(`Maximum available: ${balance}`);
       }
-    } while (bet > balance);
+      if (bet < minimunBet) {
+        alert("Sorry, your bet is lower than the minimun required.");
+        alert(`Mininum required: ${minimunBet}`);
+      }
+    } while (bet > balance || bet < minimunBet);
     let card1 = Math.floor(Math.random() * clubs.length);
     let card2 = Math.floor(Math.random() * clubs.length);
     let suit1 = suits[Math.floor(Math.random() * suits.length)];
-    let suit2 = suits[Math.floor(Math.random() * suits.length)];
+    let suit2 = "";
+    do {
+      suit2 = suits[Math.floor(Math.random() * suits.length)];
+    } while (card1 == card2 && suit1 == suit2);
     console.log(
       `${eval(suit1)[card1]} ${suit1} vs. ${eval(suit2)[card2]} ${suit2}`
     );
@@ -404,50 +419,49 @@ const exercise8 = () => {
     } else {
       alert("Draw");
     }
-    if (balance > 0) {
+    if (balance >= minimunBet) {
       continuePlaying =
         prompt("Would like to continue playing").toLowerCase() == "y";
     }
-  } while (continuePlaying && balance > 0);
-  if (balance > 500) {
-    alert(`Betting benefits: ${500 - balance} €`);
-  } else {
-    alert(`Betting benefits: ${balance - 500} €`);
-  }
+  } while (continuePlaying && balance >= minimunBet);
+  alert(`Betting benefits: ${balance - 500} €`);
   alert(`Total balance: ${balance} €`);
 };
 
-// exercise8();
+exercise8();
 
 // Exercise 9
 
 const exercise9 = (encode, text) => {
   const cipher = (encode, text) => {
     if (encode) {
+      // encode
       text = [...text].map((letter) => {
         switch (letter.charCodeAt(0)) {
           // uppers
-          case 88:
+          case 88: // x
             return String.fromCharCode(65);
-          case 89:
+          case 89: // y
             return String.fromCharCode(66);
-          case 90:
+          case 90: // z
             return String.fromCharCode(67);
           //lowers
-          case 120:
+          case 120: // x
             return String.fromCharCode(97);
-          case 121:
+          case 121: // y
             return String.fromCharCode(98);
-          case 122:
+          case 122: // z
             return String.fromCharCode(99);
+          //whitespace
           case 32:
             return String.fromCharCode(32);
-
+          // the rest of letters
           default:
             return String.fromCharCode(letter.charCodeAt(0) + 3);
         }
       });
     } else {
+      // decode
       text = [...text].map((letter) => {
         switch (letter.charCodeAt(0)) {
           // uppers
